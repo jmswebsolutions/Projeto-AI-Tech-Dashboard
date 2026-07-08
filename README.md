@@ -388,6 +388,7 @@ The project automatically fetches:
 - [x] Analytics (Sentry, Mixpanel)
 - [x] Infinite scroll
 - [x] Customizable theme
+- [x] Internationalization (i18n) - English & Portuguese
 
 ## 📜 License
 

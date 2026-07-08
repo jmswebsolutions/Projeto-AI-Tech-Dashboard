@@ -1,6 +1,8 @@
 import styles from './Header.module.css';
 import { ThemeSelector } from '../ThemeSelector';
+import { LanguageSelector } from '../LanguageSelector/LanguageSelector';
 import { useTheme } from '../../hooks/useTheme';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderProps {
   title?: string;
@@ -8,8 +10,11 @@ interface HeaderProps {
   favoriteCount?: number;
 }
 
-export function Header({ title = 'AI & Tech Dashboard', subtitle, favoriteCount = 0 }: HeaderProps) {
+export function Header({ title, subtitle, favoriteCount = 0 }: HeaderProps) {
   const { effectiveMode, toggleMode } = useTheme();
+  const { t } = useTranslation();
+
+  const displayTitle = title || t('header.title');
 
   return (
     <header className={styles.header}>
@@ -18,7 +23,7 @@ export function Header({ title = 'AI & Tech Dashboard', subtitle, favoriteCount 
           <div className={styles.brand}>
             <div className={styles.icon}>⚡</div>
             <div>
-              <h1 className={styles.title}>{title}</h1>
+              <h1 className={styles.title}>{displayTitle}</h1>
               {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
             </div>
           </div>
@@ -36,8 +41,9 @@ export function Header({ title = 'AI & Tech Dashboard', subtitle, favoriteCount 
             >
               {effectiveMode === 'dark' ? '☀️' : '🌙'}
             </button>
+            <LanguageSelector />
             <ThemeSelector />
-            <div className={styles.badge}>Live</div>
+            <div className={styles.badge}>{t('header.live')}</div>
           </div>
         </div>
       </div>

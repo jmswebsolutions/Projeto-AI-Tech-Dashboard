@@ -1,0 +1,79 @@
+{
+  "header": {
+    "title": "AI & Tech Dashboard",
+    "live": "Ao vivo"
+  },
+  "hero": {
+    "badge": "Atualizações em tempo real",
+    "heading": "O que está acontecendo em tech & IA",
+    "subheading": "As principais histórias do Hacker News — classificadas, discutidas e ranqueadas pela comunidade",
+    "searchPlaceholder": "Buscar histórias... (Pressione / para focar)"
+  },
+  "toolbar": {
+    "category": "Categoria",
+    "categories": {
+      "top": "Top Stories",
+      "new": "Novas",
+      "best": "Melhores",
+      "ask": "Ask HN",
+      "show": "Show HN",
+      "job": "Vagas"
+    },
+    "view": "Visualizar",
+    "views": {
+      "all": "Todas",
+      "favorites": "Favoritos"
+    },
+    "filter": "Filtro",
+    "timeFilter": "Tempo",
+    "timeFilters": {
+      "all": "Todo o tempo",
+      "today": "Hoje",
+      "week": "Esta semana",
+      "month": "Este mês"
+    },
+    "minScore": "Pontuação mínima",
+    "results": "Mostrando {{count}} histórias"
+  },
+  "newsCard": {
+    "readArticle": "Ler Artigo",
+    "discuss": "Discutir",
+    "points": "pontos",
+    "comments": "comentários",
+    "by": "por",
+    "markAsRead": "Marcar como lido",
+    "markAsUnread": "Marcar como não lido"
+  },
+  "loading": {
+    "title": "Carregando histórias...",
+    "message": "Buscando as últimas notícias de tech e IA"
+  },
+  "empty": {
+    "title": "Nenhuma história encontrada",
+    "message": "Tente ajustar sua busca ou filtros"
+  },
+  "error": {
+    "title": "Algo deu errado",
+    "message": "Falha ao carregar histórias. Por favor, tente novamente.",
+    "retry": "Tentar Novamente"
+  },
+  "footer": {
+    "copyright": "© 2026 AI & Tech Dashboard — Desenvolvido com",
+    "hackerNews": "Hacker News API",
+    "github": "GitHub"
+  },
+  "language": {
+    "select": "Idioma",
+    "en": "English",
+    "pt": "Português"
+  },
+  "theme": {
+    "select": "Tema",
+    "mode": "Modo",
+    "modes": {
+      "dark": "Escuro",
+      "light": "Claro",
+      "system": "Sistema"
+    }
+  }
+}

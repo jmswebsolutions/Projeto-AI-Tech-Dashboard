@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Story } from '../../api/newsApi';
 import type { Comment } from '../../api/newsApi';
 import { CommentThread } from '../CommentThread/CommentThread';
+import { useTranslation } from 'react-i18next';
 import styles from './NewsCard.module.css';
 
 interface NewsCardProps {
@@ -15,10 +16,11 @@ interface NewsCardProps {
 }
 
 export function NewsCard({ story, index, isFavorite = false, onToggleFavorite, isRead = false, onToggleRead, isFocused = false }: NewsCardProps) {
+  const { t, i18n } = useTranslation();
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState<Comment[]>([]);
   const [loadingComments, setLoadingComments] = useState(false);
-  const date = new Date(story.time * 1000).toLocaleDateString('en-US', {
+  const date = new Date(story.time * 1000).toLocaleDateString(i18n.language, {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
@@ -87,7 +89,7 @@ export function NewsCard({ story, index, isFavorite = false, onToggleFavorite, i
                 className={`${styles.readBtn} ${isRead ? styles.readActive : ''}`}
                 onClick={() => onToggleRead(story.id)}
                 aria-pressed={isRead}
-                title={isRead ? 'Mark as unread' : 'Mark as read'}
+                title={isRead ? t('newsCard.markAsUnread') : t('newsCard.markAsRead')}
               >
                 {isRead ? '✓' : '○'}
               </button>
@@ -116,17 +118,17 @@ export function NewsCard({ story, index, isFavorite = false, onToggleFavorite, i
 
       <div className={styles.metadata}>
         <div className={styles.stats}>
-          <span className={styles.stat} title="Points">
+          <span className={styles.stat} title={t('newsCard.points')}>
             <span className={styles.icon}>▲</span>
             {story.score}
           </span>
-          <span className={styles.stat} title="Comments">
+          <span className={styles.stat} title={t('newsCard.comments')}>
             <span className={styles.icon}>💬</span>
             {story.descendants ?? 0}
           </span>
         </div>
         <div className={styles.info}>
-          <span className={styles.author} title={`by ${story.by}`}>{story.by}</span>
+          <span className={styles.author} title={`${t('newsCard.by')} ${story.by}`}>{story.by}</span>
           <span className={styles.separator}>·</span>
           <span className={styles.date} title={date}>{date}</span>
         </div>
@@ -142,7 +144,7 @@ export function NewsCard({ story, index, isFavorite = false, onToggleFavorite, i
             rel="noreferrer"
             className={`${styles.button} ${styles.primary}`}
           >
-            Read Article
+            {t('newsCard.readArticle')}
             <span className={styles.arrow}>→</span>
           </a>
         )}
@@ -150,9 +152,9 @@ export function NewsCard({ story, index, isFavorite = false, onToggleFavorite, i
           type="button"
           className={`${styles.button} ${styles.discussBtn}`}
           onClick={handleToggleComments}
-          title={`${story.descendants ?? 0} comments`}
+          title={`${story.descendants ?? 0} ${t('newsCard.comments')}`}
           aria-expanded={showComments}
-          aria-label={`${story.descendants ?? 0} comments`}
+          aria-label={`${story.descendants ?? 0} ${t('newsCard.comments')}`}
         >
           <span className={styles.icon}>💬</span>
         </button>
@@ -170,11 +172,11 @@ export function NewsCard({ story, index, isFavorite = false, onToggleFavorite, i
       {showComments && (
         <>
           {loadingComments ? (
-            <div className={styles.commentsLoading}>Loading comments...</div>
+            <div className={styles.commentsLoading}>{t('loading.title')}</div>
           ) : comments.length > 0 ? (
             <CommentThread comments={comments} storyId={story.id} />
           ) : (
-            <div className={styles.noComments}>No comments yet</div>
+            <div className={styles.noComments}>{t('newsCard.comments')}</div>
           )}
         </>
       )}

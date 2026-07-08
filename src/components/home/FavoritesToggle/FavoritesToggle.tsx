@@ -1,4 +1,5 @@
 import styles from './FavoritesToggle.module.css';
+import { useTranslation } from 'react-i18next';
 
 interface FavoritesToggleProps {
   value: 'all' | 'favorites';
@@ -7,8 +8,9 @@ interface FavoritesToggleProps {
 }
 
 export function FavoritesToggle({ value, onChange, count }: FavoritesToggleProps) {
+  const { t } = useTranslation();
   const isFavorites = value === 'favorites';
-  
+
   return (
     <label className={styles.toggle}>
       <input
@@ -21,7 +23,7 @@ export function FavoritesToggle({ value, onChange, count }: FavoritesToggleProps
         <span className={styles.thumb} />
       </span>
       <span className={styles.text}>
-        Favorites {count > 0 && <span className={styles.count}>({count})</span>}
+        {t('toolbar.views.favorites')} {count > 0 && <span className={styles.count}>({count})</span>}
       </span>
     </label>
   );

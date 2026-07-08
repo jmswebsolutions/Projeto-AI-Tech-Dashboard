@@ -12,11 +12,13 @@ import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import { filterStories, type TimeFilter } from '../components/home/storyFilters';
 import type { StoryCategory } from '../api/newsApi';
 import mixpanel from 'mixpanel-browser';
+import { useTranslation } from 'react-i18next';
 import styles from './Home.module.css';
 
 type ViewFilter = 'all' | 'favorites';
 
 export function Home() {
+  const { t } = useTranslation();
   const [category, setCategory] = useState<StoryCategory>('top');
   const { stories, loading, error, refetch, hasNextPage, fetchNextPage, isFetchingNextPage } = useNews(category);
   const { toggleFavorite, isFavorite, favoriteCount } = useFavorites();
@@ -111,16 +113,16 @@ export function Home() {
             <div>
               <p className={styles.eyebrow}>
                 <span className={styles.dot} />
-                Real-time Updates
+                {t('hero.badge')}
               </p>
               <h1 className={styles.heading}>
-                What's happening in <em>tech & AI</em>
+                {t('hero.heading')}
               </h1>
               <p className={styles.subheading}>
-                Top stories from Hacker News — sorted, discussed, and ranked by the community
+                {t('hero.subheading')}
               </p>
             </div>
-            <SearchBar ref={searchRef} value={search} onChange={handleSearchChange} placeholder="Search stories... (Press / to focus)" />
+            <SearchBar ref={searchRef} value={search} onChange={handleSearchChange} placeholder={t('hero.searchPlaceholder')} />
           </div>
         </div>
       </section>
@@ -172,9 +174,9 @@ export function Home() {
         <div className={styles.container}>
           <div className={styles.footerContent}>
             <p className={styles.footerText}>
-              © 2026 AI & Tech Dashboard — Powered by{' '}
+              {t('footer.copyright')}{' '}
               <a href="https://news.ycombinator.com" target="_blank" rel="noreferrer">
-                Hacker News API
+                {t('footer.hackerNews')}
               </a>
             </p>
             <div className={styles.footerLinks}>
@@ -182,7 +184,7 @@ export function Home() {
                 Hacker News
               </a>
               <a href="https://github.com/jmswebsolutions/Project-AI-Tech-Dashboard" target="_blank" rel="noreferrer">
-                GitHub
+                {t('footer.github')}
               </a>
             </div>
           </div>

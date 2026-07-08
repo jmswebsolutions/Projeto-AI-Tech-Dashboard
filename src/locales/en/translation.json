@@ -1,0 +1,79 @@
+{
+  "header": {
+    "title": "AI & Tech Dashboard",
+    "live": "Live"
+  },
+  "hero": {
+    "badge": "Real-time Updates",
+    "heading": "What's happening in tech & AI",
+    "subheading": "Top stories from Hacker News — sorted, discussed, and ranked by the community",
+    "searchPlaceholder": "Search stories... (Press / to focus)"
+  },
+  "toolbar": {
+    "category": "Category",
+    "categories": {
+      "top": "Top Stories",
+      "new": "New",
+      "best": "Best",
+      "ask": "Ask HN",
+      "show": "Show HN",
+      "job": "Jobs"
+    },
+    "view": "View",
+    "views": {
+      "all": "All",
+      "favorites": "Favorites"
+    },
+    "filter": "Filter",
+    "timeFilter": "Time",
+    "timeFilters": {
+      "all": "All time",
+      "today": "Today",
+      "week": "This week",
+      "month": "This month"
+    },
+    "minScore": "Min Score",
+    "results": "Showing {{count}} stories"
+  },
+  "newsCard": {
+    "readArticle": "Read Article",
+    "discuss": "Discuss",
+    "points": "points",
+    "comments": "comments",
+    "by": "by",
+    "markAsRead": "Mark as read",
+    "markAsUnread": "Mark as unread"
+  },
+  "loading": {
+    "title": "Loading stories...",
+    "message": "Fetching the latest tech and AI news"
+  },
+  "empty": {
+    "title": "No stories found",
+    "message": "Try adjusting your search or filters"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "message": "Failed to load stories. Please try again.",
+    "retry": "Try Again"
+  },
+  "footer": {
+    "copyright": "© 2026 AI & Tech Dashboard — Powered by",
+    "hackerNews": "Hacker News API",
+    "github": "GitHub"
+  },
+  "language": {
+    "select": "Language",
+    "en": "English",
+    "pt": "Português"
+  },
+  "theme": {
+    "select": "Theme",
+    "mode": "Mode",
+    "modes": {
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    }
+  }
+}

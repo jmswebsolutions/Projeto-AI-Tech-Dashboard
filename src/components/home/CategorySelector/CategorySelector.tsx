@@ -1,5 +1,6 @@
 import type { StoryCategory } from '../../../api/newsApi';
 import { categoryLabels } from '../../../constants/categories';
+import { useTranslation } from 'react-i18next';
 import styles from './CategorySelector.module.css';
 
 interface CategorySelectorProps {
@@ -8,9 +9,11 @@ interface CategorySelectorProps {
 }
 
 export function CategorySelector({ value, onChange }: CategorySelectorProps) {
+  const { t } = useTranslation();
+
   return (
     <fieldset className={styles.fieldset}>
-      <legend className={styles.legend}>Category</legend>
+      <legend className={styles.legend}>{t('toolbar.category')}</legend>
       <div className={styles.radioGroup}>
         {(Object.keys(categoryLabels) as StoryCategory[]).map((cat) => (
           <label key={cat} className={styles.label}>
@@ -22,7 +25,7 @@ export function CategorySelector({ value, onChange }: CategorySelectorProps) {
               onChange={() => onChange(cat)}
               className={styles.radio}
             />
-            <span className={styles.text}>{categoryLabels[cat as StoryCategory]}</span>
+            <span className={styles.text}>{t(`toolbar.categories.${cat}`)}</span>
           </label>
         ))}
       </div>

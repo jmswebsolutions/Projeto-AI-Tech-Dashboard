@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import * as Sentry from '@sentry/react';
 import mixpanel from 'mixpanel-browser';
+import './i18n/config';
 import App from './App';
 
 // Initialize Sentry for error tracking
