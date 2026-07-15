@@ -380,7 +380,7 @@ The project automatically fetches:
 ## 🚀 Future Improvements
 
 - [x] Unit tests with Vitest
-- [ ] E2E tests with Playwright
+- [x] E2E tests with Playwright
 - [x] PWA features (offline, install)
 - [x] Dark/Light mode toggle
 - [x] Favorites/bookmarks
